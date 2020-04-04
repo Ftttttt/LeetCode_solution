@@ -1,10 +1,35 @@
 # 第一次写leetcode题，决定用GitHub来存放每天的做题记录
 ## 刚开始用GitHub，挺不熟练，需要多加练习
-  **题目：
+
+题目：
   给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个整数，并返回他们的数组下标。
 
   你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。
 
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/two-sum
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+  来源：力扣（LeetCode）
+  链接：https://leetcode-cn.com/problems/two-sum
+  著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
+Python实现：
+```
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        j = -1  //设置变量，控制输出
+        for i in range(len(nums)):
+            if (target-nums[i]) in nums:  //如果target-nums[i]在nums中
+                if (nums.count(nums[i]) == 1) and (nums[i]==target-nums[i]):
+                    continue
+                else:    
+                    j = nums.index(target-nums[i],i+1)
+                    break
+        if j>0:
+            return [i, j]
+        else:
+            return []
+```
+执行用时：1324 ms，在所有 Python3 提交中击败了24.87%的用户
+内存消耗：14.3 MB，在所有 Python3 提交中击败了21.94%的用户
+
+补充知识点：
+str.index(str, beg=0, end=len(string))
+其中，beg为起始位置，end为结束位置
