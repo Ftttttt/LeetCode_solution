@@ -14,10 +14,9 @@ class Solution(object):
             if lst3[i] in s:
                 res += lst4[i]
                 s = s[:s.index(lst3[i])] + s[s.index(lst3[i])+2:]
-        dic_s = {'I':0,'V':0,'X':0,'L':0,'C':0,'D':0,'M':0}
+        dic_s = {'I':1,'V':5,'X':10,'L':50,'C':100,'D':500,'M':1000}
         for char in s:
-            dic_s[char] += 1
-        res += dic_s['I']*1 + dic_s['V']*5 + dic_s['X']*10 + dic_s['L']*50 + dic_s['C']*100 + dic_s['D']*500 + dic_s['M']*1000
+            res += dic_s[char]
         return res
 
 
